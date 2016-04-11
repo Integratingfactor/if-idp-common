@@ -1,4 +1,4 @@
-package com.integratingfactor.idp.common.exceptions.service;
+package com.integratingfactor.idp.common.service.exceptions;
 
 public abstract class IdpException extends RuntimeException {
 
