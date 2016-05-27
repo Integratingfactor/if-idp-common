@@ -10,4 +10,9 @@ public class IdpServiceException extends IdpException {
     public IdpServiceException(String error) {
         super("Service Error: " + error);
     }
+
+    @Override
+    protected int getStatus() {
+        return 503;
+    }
 }

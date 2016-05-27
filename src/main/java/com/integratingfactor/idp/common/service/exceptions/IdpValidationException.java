@@ -10,4 +10,9 @@ public class IdpValidationException extends IdpException {
     public IdpValidationException(String error) {
         super("Validation Error: " + error);
     }
+
+    @Override
+    protected int getStatus() {
+        return 400;
+    }
 }

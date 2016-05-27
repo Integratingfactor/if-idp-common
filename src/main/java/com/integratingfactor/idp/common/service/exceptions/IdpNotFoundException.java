@@ -10,4 +10,9 @@ public class IdpNotFoundException extends IdpException {
     public IdpNotFoundException(String error) {
         super("Does not exists: " + error);
     }
+
+    @Override
+    protected int getStatus() {
+        return 404;
+    }
 }

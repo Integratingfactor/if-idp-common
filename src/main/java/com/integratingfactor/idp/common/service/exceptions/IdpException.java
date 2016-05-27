@@ -1,5 +1,8 @@
 package com.integratingfactor.idp.common.service.exceptions;
 
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
 public abstract class IdpException extends RuntimeException {
 
     /**
@@ -10,6 +13,8 @@ public abstract class IdpException extends RuntimeException {
 
     protected IdpException() {
     }
+
+    protected abstract int getStatus();
 
     protected IdpException(String error) {
         this.error = error;
@@ -22,6 +27,10 @@ public abstract class IdpException extends RuntimeException {
     @Override
     public String getMessage() {
         return error;
+    }
+
+    public Response toResponse() {
+        return Response.status(getStatus()).type(MediaType.APPLICATION_JSON_TYPE).entity(getError()).build();
     }
 
 }
