@@ -17,7 +17,6 @@ public class IdpApiExceptionHandler implements ExceptionMapper<Exception> {
     @Context
     HttpServletRequest request;
 
-    @Override
     public Response toResponse(Exception e) {
         if (e instanceof IdpException) {
             LOG.info(((IdpException) e).getError());
